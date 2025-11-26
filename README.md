@@ -1,19 +1,21 @@
-# Sistema de Irrigação Automatizado com IoT
+# Sistema de Monitoramento de Adesão Medicamentosa (ODS 3)
 
-Este projeto visa otimizar o consumo de água na agricultura (ODS 2 e ODS 6) através de um sistema de irrigação inteligente baseado no ESP8266.
+Este projeto apresenta um protótipo de **Caixa de Remédios Inteligente** baseada em IoT. O objetivo é auxiliar pacientes idosos na adesão ao tratamento, enviando notificações automáticas para cuidadores quando a medicação é tomada.
 
-## 📋 Hardware
+## 📋 Hardware (Simulado)
 
-* **Microcontrolador:** NodeMCU ESP8266
-* **Sensor:** Sensor de Umidade do Solo (Módulo YL-69 ou Capacitivo)
-* **Atuador:** Módulo Relé 5V + Mini Bomba de Água
-* **Conexões:**
-    * Sensor (Pino Digital DO) -> NodeMCU D2
-    * Relé (Pino IN) -> NodeMCU D1
+* **Microcontrolador:** ESP32 (DevKit V1)
+* **Sensor:** Slide Switch (No pino D4) -> Simula o sensor magnético da tampa.
+* **Atuador:** LED Vermelho (No pino D15) -> Simula o alerta visual/sonoro.
 
-## 🚀 Execução
+## 🚀 Como Testar (Simulação)
 
-1. Carregue o código `codigo.ino` utilizando a Arduino IDE.
-2. Certifique-se de ter a biblioteca `PubSubClient` instalada.
-3. Configure suas credenciais de Wi-Fi no código.
-4. Monitore o tópico MQTT `mackenzie/irrigacao/status`.
+1. **Acesse o Simulador:** [COLE AQUI O SEU LINK DO WOKWI]
+2. **Monitore via MQTT:**
+   * Acesse: https://mqttx.app/web-client/
+   * Host: `broker.hivemq.com` | Porta: `8884` (SSL)
+   * Tópico: `mackenzie/saude/#`
+
+## ⚙️ Funcionamento
+* **Caixa Fechada:** O sistema envia "ALERTA_HORA_DO_REMEDIO" e liga o LED.
+* **Caixa Aberta:** O sistema envia "REMEDIO_TOMADO" e desliga o LED.
